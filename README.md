@@ -35,7 +35,7 @@ Forever is a full-featured e-commerce platform built using the MERN stack and st
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/forever-ecommerce.git
+   git clone https://github.com/Imtiaz4530/Forever
    ```
 2. Install dependencies for the frontend:
 
@@ -51,18 +51,55 @@ Forever is a full-featured e-commerce platform built using the MERN stack and st
    npm install
    ```
 
-4. Add a `.env` file for environment variables in the backend directory, including the following:
+4. Add a `.env` file for environment variables in the frontend, admin and backend directory, including the following:
+
+   ## Frontend & admin
+
+   ```
+   VITE_BACKEND_URL =<Your Backend URL>
+   ```
+
+   ## Backend
 
    ```
    MONGODB_URI=<Your MongoDB URI>
    JWT_SECRET=<Your JWT Secret>
+   CLOUDINARY_API_KEY  = <Your Cloudinary API Key>
+   CLOUDINARY_SECRET_KEY = <Your Cloudinary Secret key>
+   CLOUDINARY_NAME = <Your Cloudinary Name>
+   ADMIN_EMAIL = <Your MongoDB URI>
+   ADMIN_PASSWORD = <Your Admin password>
+   STRIPE_SECRET_KEY = <Your Stripe Secret>
    ```
 
+````
+
 5. Run both frontend and backend:
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+````
 
 ## Contributing
 
 Feel free to open issues or submit pull requests to contribute to this project!
+
+## Screenshots
+
+### FRONTEND
+
+![Homepage](./frontend/public/f1.png)
+![Collections](./frontend/public/f2.png)
+![Login](./frontend/public/f3.png)
+![Cart](./frontend/public/f4.png)
+![Product Description](./frontend/public/f5.png)
+![Cart with add products](./frontend/public/f6.png)
+![Payment](./frontend/public/f7.png)
+![Stripe](./frontend/public/f8.png)
+![orders history](./frontend/public/f9.png)
+
+### Admin Dashboard
+
+![Login](./frontend/public/a1.png)
+![Add Product](./frontend/public/a2.png)
+![Lists](./frontend/public/a3.png)
+![Orders](./frontend/public/a4.png)
