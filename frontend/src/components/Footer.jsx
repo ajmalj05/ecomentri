@@ -13,7 +13,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="text-center sm:text-left"
           >
-            <img src={assets.logo} className="mb-5 w-32 mx-auto sm:mx-0" alt="Logo" />
+            <h1 className="text-2xl font-bold text-gray-800">The Store</h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -50,14 +50,14 @@ const Footer = () => {
   <motion.li 
     whileHover={{ scale: 1.05, color: "#FF6347" }} 
     className="cursor-pointer" 
-    onClick={() => (window.location.href = "/delivery")}
+    onClick={() => (window.location.href = "/about")}
   >
     Delivery
   </motion.li>
   <motion.li 
     whileHover={{ scale: 1.05, color: "#FF6347" }} 
     className="cursor-pointer" 
-    onClick={() => (window.location.href = "/privacy-policy")}
+    onClick={() => (window.location.href = "/about")}
   >
     Privacy Policy
   </motion.li>
