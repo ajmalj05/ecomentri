@@ -20,7 +20,7 @@ const Footer = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-gray-600"
             >
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam itaque distinctio et quas?
+              Discover the latest fashion trends at The Store. Shop stylish clothing, accessories, and footwear for every occasion. Enjoy fast shipping, secure payments, and easy returns. Elevate your wardrobe with top-quality fashion at unbeatable prices. Your go-to destination for trendy and timeless styles!
             </motion.p>
           </motion.div>
 

@@ -46,7 +46,7 @@ const Contact = () => {
           >
             <h3 className="text-2xl font-bold">📍 Our Store</h3>
             <p className="text-lg opacity-90 mt-1">
-              54709 Willms Station, Suite 350 <br /> Washington, USA
+              Ayoor,Kollam <br /> kerala,India
             </p>
           </motion.div>
 
@@ -57,7 +57,7 @@ const Contact = () => {
           >
             <h3 className="text-2xl font-bold">📞 Contact Info</h3>
             <p className="text-lg opacity-90 mt-1">
-              Tel: (415) 666-0132 <br /> Email: admin@forever.com
+              Tel: +91 9999999999 <br /> Email: admin@thestore.com
             </p>
           </motion.div>
 
