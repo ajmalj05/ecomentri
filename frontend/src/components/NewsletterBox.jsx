@@ -1,14 +1,33 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const NewsletterBox = () => {
+  const [email, setEmail] = useState("");
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    if (email.trim() === "") return;
+
+    // Show success message
+    toast.success("Subscribed successfully!", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      theme: "light",
+    });
+
+    // Clear input after submission
+    setEmail("");
   };
 
   return (
     <div className="bg-white py-16 mt-16">
       <div className="text-center">
-        {/* Title with animation */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -18,7 +37,6 @@ const NewsletterBox = () => {
           Subscribe now & get 20% off
         </motion.p>
 
-        {/* Subtitle with animation */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,7 +51,6 @@ const NewsletterBox = () => {
           onSubmit={onSubmitHandler}
           className="w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border border-gray-300 bg-gray-50 bg-opacity-70 px-4 py-3 rounded-lg shadow-lg backdrop-blur-lg"
         >
-          {/* Input Field with animation */}
           <motion.input
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -42,9 +59,10 @@ const NewsletterBox = () => {
             placeholder="Enter your email."
             className="w-full outline-none p-3 text-gray-700 rounded-lg"
             required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          
-          {/* Submit Button with hover animation */}
+
           <motion.button
             type="submit"
             whileHover={{ scale: 1.05, backgroundColor: "#FF6347" }}
@@ -55,6 +73,9 @@ const NewsletterBox = () => {
           </motion.button>
         </form>
       </div>
+
+      {/* Toast Notification */}
+      <ToastContainer />
     </div>
   );
 };

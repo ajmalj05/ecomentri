@@ -66,7 +66,7 @@ const Contact = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
           >
-            <h3 className="text-2xl font-bold">🚀 Careers at Forever</h3>
+            <h3 className="text-2xl font-bold">🚀 Careers at The Store</h3>
             <p className="text-lg opacity-90 mt-1">
               Join our growing team and make an impact with us!
             </p>
