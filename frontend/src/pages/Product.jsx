@@ -100,29 +100,7 @@ const Product = () => {
         </div>
       </div>
 
-      {/* DESCRIPTION AND REVIEW SECTION */}
-      <div className="mt-20">
-        <div className="flex">
-          <b className="border px-5 py-3 text-sm ">Description</b>
-          <p className="border px-5 py-3 text-sm ">Reviews (122)</p>
-        </div>
-        <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            dolor, consequuntur totam nostrum praesentium distinctio accusamus
-            assumenda architecto alias veritatis autem. Non facilis alias
-            quaerat quasi cumque nisi. Suscipit cupiditate perspiciatis
-            laudantium error quibusdam facere, praesentium delectus cum rerum
-            tempore laboriosam temporibus. Id voluptatibus quia, optio provident
-            nesciunt debitis. Harum!
-          </p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui quos
-            deleniti corrupti dolore commodi deserunt, dicta ipsam ex nemo
-            animi.
-          </p>
-        </div>
-      </div>
+      
 
       {/* DISPLAY RELATED PRODUCTS */}
       <RelatedProduct
