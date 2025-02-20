@@ -1,10 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
+import Title from "../components/Title";
+import { assets } from "../assets/assets";
 import CartTotal from "../components/CartTotal";
-import { Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
 
 const Cart = () => {
-  const { products, currency, cartItems, updateQuantity, navigate } = useContext(ShopContext);
+  const { products, currency, cartItems, updateQuantity, navigate } =
+    useContext(ShopContext);
+
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
@@ -25,109 +28,80 @@ const Cart = () => {
     }
   }, [cartItems, products]);
 
-  if (cartData.length === 0) {
-    return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
-        <div className="bg-blue-50 p-6 rounded-full mb-6">
-          <ShoppingBag size={48} className="text-blue-600" />
-        </div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Your cart is empty</h2>
-        <p className="text-gray-600 mb-8 max-w-md">
-          Looks like you haven't added anything to your cart yet. Start shopping to fill it with amazing products!
-        </p>
-        <button
-          onClick={() => navigate("/collection")}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-        >
-          Continue Shopping
-          <ArrowRight size={20} />
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-pink-600 mb-8">
-        Shopping Cart
-      </h1>
+    <div className="border-t pt-14">
+      <div className="text-2xl mb-3">
+        <Title text1={"YOUR"} text2={"CART"} />
+      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Cart Items */}
-        <div className="lg:col-span-2 space-y-4">
-          {cartData.map((item, i) => {
-            const productsData = products.find((product) => product._id === item._id);
-            
-            return (
-              <div
-                key={i}
-                className="bg-white rounded-lg shadow-sm p-4 sm:p-6 flex items-center gap-4 transform hover:scale-[1.01] transition-transform duration-200"
-              >
-                <div className="w-24 sm:w-32 h-24 sm:h-32 flex-shrink-0">
-                  <img
-                    src={productsData.image[0]}
-                    alt={productsData.name}
-                    className="w-full h-full object-cover rounded-md"
-                  />
-                </div>
+      <div>
+        {cartData.map((item, i) => {
+          const productsData = products.find(
+            (product) => product._id === item._id
+          );
 
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1 truncate">
+          return (
+            <div
+              className="py-4 border-t border-b text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4"
+              key={i}
+            >
+              <div className="flex items-start gap-6">
+                <img
+                  src={productsData.image[0]}
+                  className="w-16 sm:w-20"
+                  alt=""
+                />
+                <div>
+                  <p className="text-xs sm:text-lg font-medium">
                     {productsData.name}
-                  </h3>
-                  
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
-                    <span className="font-medium text-blue-600">
-                      {currency}{productsData.price}
-                    </span>
-                    <span className="px-3 py-1 bg-blue-50 rounded-full">
-                      Size: {item.size}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <div className="relative">
-                      <input
-                        type="number"
-                        min={1}
-                        defaultValue={item.quantity}
-                        onChange={(e) =>
-                          e.target.value === "" || e.target.value === "0"
-                            ? null
-                            : updateQuantity(item._id, item.size, Number(e.target.value))
-                        }
-                        className="w-20 px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
-                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-                        qty
-                      </span>
-                    </div>
-
-                    <button
-                      onClick={() => updateQuantity(item._id, item.size, 0)}
-                      className="p-2 text-gray-400 hover:text-red-500 transition-colors"
-                      aria-label="Remove item"
-                    >
-                      <Trash2 size={20} />
-                    </button>
+                  </p>
+                  <div className="flex items-center gap-5 mt-2">
+                    <p>
+                      {currency}
+                      {productsData.price}
+                    </p>
+                    <p className="px-2 sm:px-3 sm:py-1 border bg-stale-50">
+                      {item.size}
+                    </p>
                   </div>
                 </div>
               </div>
-            );
-          })}
-        </div>
 
-        {/* Order Summary */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-lg shadow-sm p-6 sticky top-24">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">Order Summary</h2>
-            <CartTotal />
+              <input
+                className="border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1"
+                type="number"
+                min={1}
+                defaultValue={item.quantity}
+                onChange={(e) =>
+                  e.target.value === "" || e.target.value === "0"
+                    ? null
+                    : updateQuantity(
+                        item._id,
+                        item.size,
+                        Number(e.target.value)
+                      )
+                }
+              />
+              <img
+                src={assets.bin_icon}
+                className="w-4 mr-4 sm:w-5 cursor-pointer"
+                alt=""
+                onClick={() => updateQuantity(item._id, item.size, 0)}
+              />
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="flex justify-end my-20">
+        <div className="w-full sm:w-[450px]">
+          <CartTotal />
+          <div className="w-full text-end">
             <button
+              className="bg-black text-white text-sm my-8 px-8 py-3"
               onClick={() => navigate("/place-order")}
-              className="w-full mt-6 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-pink-600 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity transform hover:scale-[0.99] active:scale-[0.97]"
             >
-              Proceed to Checkout
-              <ArrowRight size={20} />
+              PROCEED TO CHECKOUT
             </button>
           </div>
         </div>
