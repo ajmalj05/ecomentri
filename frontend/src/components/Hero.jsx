@@ -39,9 +39,10 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="mt-6"
         >
-          <button className="bg-black text-white py-3 px-8 rounded-full font-semibold hover:bg-gray-700 transition-all ease-in-out duration-300">
-            Shop Now
-          </button>
+          <a href="/collection" className="bg-black text-white py-3 px-8 rounded-full font-semibold hover:bg-gray-700 transition-all ease-in-out duration-300">
+  Shop Now
+</a>
+
         </motion.div>
       </motion.div>
 
