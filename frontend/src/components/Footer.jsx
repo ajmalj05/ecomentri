@@ -33,19 +33,36 @@ const Footer = () => {
           >
             <p className="text-xl font-semibold text-gray-700 mb-5">COMPANY</p>
             <ul className="flex flex-col gap-2 text-gray-600">
-              <motion.li whileHover={{ scale: 1.05, color: "#FF6347" }} className="cursor-pointer">
-                Home
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05, color: "#FF6347" }} className="cursor-pointer">
-                About Us
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05, color: "#FF6347" }} className="cursor-pointer">
-                Delivery
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05, color: "#FF6347" }} className="cursor-pointer">
-                Privacy Policy
-              </motion.li>
-            </ul>
+  <motion.li 
+    whileHover={{ scale: 1.05, color: "#FF6347" }} 
+    className="cursor-pointer" 
+    onClick={() => (window.location.href = "/")}
+  >
+    Home
+  </motion.li>
+  <motion.li 
+    whileHover={{ scale: 1.05, color: "#FF6347" }} 
+    className="cursor-pointer" 
+    onClick={() => (window.location.href = "/about")}
+  >
+    About Us
+  </motion.li>
+  <motion.li 
+    whileHover={{ scale: 1.05, color: "#FF6347" }} 
+    className="cursor-pointer" 
+    onClick={() => (window.location.href = "/delivery")}
+  >
+    Delivery
+  </motion.li>
+  <motion.li 
+    whileHover={{ scale: 1.05, color: "#FF6347" }} 
+    className="cursor-pointer" 
+    onClick={() => (window.location.href = "/privacy-policy")}
+  >
+    Privacy Policy
+  </motion.li>
+</ul>
+
           </motion.div>
 
           {/* Get In Touch */}
@@ -58,10 +75,10 @@ const Footer = () => {
             <p className="text-xl font-semibold text-gray-700 mb-5">GET IN TOUCH</p>
             <ul className="flex flex-col gap-2 text-gray-600">
               <motion.li whileHover={{ scale: 1.05, color: "#FF6347" }} className="cursor-pointer">
-                +1-212-521-4569
+                +91 9999999999
               </motion.li>
               <motion.li whileHover={{ scale: 1.05, color: "#FF6347" }} className="cursor-pointer">
-                contact@foreveryou.com
+                contact@thestore.com
               </motion.li>
             </ul>
           </motion.div>
@@ -75,7 +92,7 @@ const Footer = () => {
           className="mt-10 border-t border-gray-300 pt-5"
         >
           <p className="text-sm text-center text-gray-600">
-            Copyright 2024@ forever.com - All Rights Reserved.
+            Copyright 2025@ The Store - All Rights Reserved.
           </p>
         </motion.div>
       </div>
